@@ -27,8 +27,6 @@ The model shows which bed types go with fewer unsheltered people, not that addin
 
 
 
-
-
 #### Topic 2: Is the system getting people housed faster?
 - Business problem: A nonprofit or funder needs to know whether Albuquerque's homeless response system is getting better or worse at moving people into housing and keeping them housed, to decide where to focus funding and to report results to its board or funders.
 
@@ -36,6 +34,27 @@ The model shows which bed types go with fewer unsheltered people, not that addin
 - data: HUD "System Performance Measures Data Since FY 2015" (Excel, by community). Linked from https://www.huduser.gov/portal/datasets/ahar.html under "System Performance data files (XLSX) since FY 2015"
 
 - Model: Linear regression
+
+#### Topic 2a
+Business problem: A nonprofit or funder needs to know whether Albuquerque is getting better or worse at moving people into housing and keeping them housed, so it can decide where to put funding and report results to its board.
+
+Data science problem: Using HUD’s system performance data for every region in the U.S. since fiscal year 2015, predict how long people stay homeless from what each region has to work with. Then check whether Albuquerque does better or worse than predicted, and whether that has changed over time.
+
+Target to predict: average number of days people stay homeless in a region in a given year.
+
+Inputs:
+
+Number of people becoming homeless for the first time
+Beds by type (emergency shelter, transitional housing, permanent supportive housing, rapid re-housing). These come from the bed-count file from Topic 1, merged on region and year, so the two topics can share data.
+Year
+
+Models: linear regression (lecture 204), then ridge or lasso to see which inputs matter (lecture 211). Score with RMSE and MAE (lecture 203).
+
+How it answers the business question: For each year, compare Albuquerque’s actual days homeless with what the model predicts. If Albuquerque goes from above the prediction to below it, the system is improving relative to similar regions.
+
+Alternate target: the percent of people who return to homelessness within two years after being housed. Use it if the funder cares more about keeping people housed than about getting them housed fast.
+
+
 
 #### Topic 4: Is Albuquerque an outlier among peer cities?
 - Business problem: A nonprofit or advocate asking the city or state for funding needs to show whether Albuquerque's homelessness rate is higher or lower than expected for a city with its rents and housing market, to argue that local conditions (not just national trends) call for action.
