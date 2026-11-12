@@ -9,6 +9,26 @@
 
 -Model: Linear regression
 
+#### Topic 1a: 
+Business problem: A nonprofit applying for funding needs evidence of which kind of bed Albuquerque is shortest on (emergency shelter, transitional housing or permanent supportive housing), so it can justify what it wants to build or expand.
+
+Data science problem: Using HUD’s 2007–2024 data for every region in the U.S., predict how many people sleep unsheltered from how many beds of each type a region has. Then check whether Albuquerque has more unsheltered people than its beds predict, and which bed type matters most in the model.
+
+Target to predict: the number of unsheltered people in a region in a given year.
+
+Inputs: emergency shelter beds, transitional housing beds, permanent supportive housing beds and year (plus population if you can add it).
+
+Models: linear regression first (lecture 204), then ridge or lasso to see which bed types the model keeps as important (lecture 211). Score them with RMSE and MAE (lecture 203).
+
+Backup version (classification): predict yes or no for whether a region’s unsheltered count goes up next year, using logistic regression (lecture 224).
+
+The model shows which bed types go with fewer unsheltered people, not that adding beds would cause a drop. Say that in the write-up.
+
+
+
+
+
+
 #### Topic 2: Is the system getting people housed faster?
 - Business problem: A nonprofit or funder needs to know whether Albuquerque's homeless response system is getting better or worse at moving people into housing and keeping them housed, to decide where to focus funding and to report results to its board or funders.
 
